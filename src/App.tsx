@@ -9,7 +9,8 @@ import { useHabits } from './habits/useHabits'
 import { useTheme } from './useTheme'
 
 function App() {
-  const { habits, addHabit, toggleHabitDoneOnDate } = useHabits()
+  const { habits, addHabit, toggleHabitDoneOnDate, replaceAllHabits } =
+    useHabits()
   const today = useMemo(() => todayLocalDate(), [])
   const { theme, toggleTheme } = useTheme()
 
@@ -37,7 +38,7 @@ function App() {
         streakFor={(habit) => computeCurrentStreak(habit.completedDates, today)}
       />
       <WeeklyGrid habits={habits} today={today} />
-      <DataPortability habits={habits} />
+      <DataPortability habits={habits} onImport={replaceAllHabits} />
     </section>
   )
 }

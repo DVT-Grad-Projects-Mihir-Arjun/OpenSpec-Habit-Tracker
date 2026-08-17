@@ -6,14 +6,14 @@
 
 ## 2. Import validation
 
-- [ ] 2.1 Implement a validator that checks a parsed JSON value has the expected top-level shape (version + array of habits, each with a name and completion-date history) before it's applied.
-- [ ] 2.2 Handle JSON parse failures and validation failures by reporting an error and leaving existing stored data untouched.
+- [x] 2.1 Implement a validator that checks a parsed JSON value has the expected top-level shape (version + array of habits, each with a name and completion-date history) before it's applied.
+- [x] 2.2 Handle JSON parse failures and validation failures by reporting an error and leaving existing stored data untouched.
 
 ## 3. Import flow
 
-- [ ] 3.1 Add an "Import" control that lets the user pick a JSON file via the browser's file picker.
-- [ ] 3.2 On selecting a file that passes validation, show a confirmation step describing that existing habits/history will be replaced.
-- [ ] 3.3 On confirmation, replace stored habits and completion history with the imported data and refresh the checklist/streak/weekly-grid views.
+- [x] 3.1 Add an "Import" control that lets the user pick a JSON file via the browser's file picker.
+- [x] 3.2 On selecting a file that passes validation, show a confirmation step describing that existing habits/history will be replaced.
+- [x] 3.3 On confirmation, replace stored habits and completion history with the imported data and refresh the checklist/streak/weekly-grid views. (all views derive from shared `habits` state, so they re-render automatically)
 
 ## 4. Manual verification
 
