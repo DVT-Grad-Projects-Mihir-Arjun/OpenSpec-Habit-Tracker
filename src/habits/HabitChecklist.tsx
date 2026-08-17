@@ -4,12 +4,14 @@ interface HabitChecklistProps {
   habits: Habit[]
   isDoneToday: (habit: Habit) => boolean
   onToggle: (habitId: string) => void
+  streakFor: (habit: Habit) => number
 }
 
 export function HabitChecklist({
   habits,
   isDoneToday,
   onToggle,
+  streakFor,
 }: HabitChecklistProps) {
   if (habits.length === 0) {
     return (
@@ -23,6 +25,7 @@ export function HabitChecklist({
     <ul className="flex flex-col gap-2">
       {habits.map((habit) => {
         const done = isDoneToday(habit)
+        const streak = streakFor(habit)
         return (
           <li
             key={habit.id}
@@ -37,11 +40,14 @@ export function HabitChecklist({
             <span
               className={
                 done
-                  ? 'text-[var(--text)] line-through'
-                  : 'text-[var(--text-h)]'
+                  ? 'flex-1 text-[var(--text)] line-through'
+                  : 'flex-1 text-[var(--text-h)]'
               }
             >
               {habit.name}
+            </span>
+            <span className="text-sm text-[var(--text)]">
+              🔥 {streak}
             </span>
           </li>
         )
