@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { AddHabitForm } from './habits/AddHabitForm'
 import { HabitChecklist } from './habits/HabitChecklist'
+import { WeeklyGrid } from './habits/WeeklyGrid'
 import { todayLocalDate } from './habits/date'
 import { computeCurrentStreak } from './habits/streak'
 import { useHabits } from './habits/useHabits'
@@ -22,6 +23,7 @@ function App() {
         onToggle={(habitId) => toggleHabitDoneOnDate(habitId, today)}
         streakFor={(habit) => computeCurrentStreak(habit.completedDates, today)}
       />
+      <WeeklyGrid habits={habits} today={today} />
     </section>
   )
 }
