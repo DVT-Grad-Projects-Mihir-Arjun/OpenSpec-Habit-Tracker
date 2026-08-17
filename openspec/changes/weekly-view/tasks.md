@@ -12,5 +12,5 @@
 ## 3. Wire into app
 
 - [x] 3.1 Add the weekly grid to the app alongside the existing checklist/streak display.
-- [ ] 3.2 Manually verify: mark a habit done today, confirm today's cell reflects it immediately.
-- [ ] 3.3 Manually verify (or simulate via the date helper): the window rolls forward by one day and drops the oldest day when the local date advances.
+- [x] 3.2 Manually verify: mark a habit done today, confirm today's cell reflects it immediately.
+- [x] 3.3 Manually verify (or simulate via the date helper): the window rolls forward by one day and drops the oldest day when the local date advances.
