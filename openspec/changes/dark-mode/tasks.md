@@ -7,9 +7,9 @@
 
 ## 2. Manual toggle & persistence
 
-- [ ] 2.1 Add a toggle control to the UI shell that switches the theme.
-- [ ] 2.2 Wire the toggle to update the `data-theme` attribute immediately and persist the explicit choice to `localStorage`.
-- [ ] 2.3 Once a manual choice is stored, stop reacting to OS `prefers-color-scheme` changes; before any manual choice, keep following OS changes live.
+- [x] 2.1 Add a toggle control to the UI shell that switches the theme.
+- [x] 2.2 Wire the toggle to update the `data-theme` attribute immediately and persist the explicit choice to `localStorage`.
+- [x] 2.3 Once a manual choice is stored, stop reacting to OS `prefers-color-scheme` changes; before any manual choice, keep following OS changes live. (implemented in `useTheme`'s `hasManualChoice`-gated effect)
 
 ## 3. Verification across existing views
 
