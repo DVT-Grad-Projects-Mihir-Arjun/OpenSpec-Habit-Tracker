@@ -60,5 +60,9 @@ export function useHabits() {
     )
   }
 
-  return { habits, addHabit, toggleHabitDoneOnDate }
+  function replaceAllHabits(nextHabits: Habit[]) {
+    setHabits(nextHabits)
+  }
+
+  return { habits, addHabit, toggleHabitDoneOnDate, replaceAllHabits }
 }

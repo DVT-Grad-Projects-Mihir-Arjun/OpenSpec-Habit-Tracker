@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { AddHabitForm } from './habits/AddHabitForm'
+import { DataPortability } from './habits/DataPortability'
 import { HabitChecklist } from './habits/HabitChecklist'
 import { WeeklyGrid } from './habits/WeeklyGrid'
 import { todayLocalDate } from './habits/date'
@@ -8,7 +9,8 @@ import { useHabits } from './habits/useHabits'
 import { useTheme } from './useTheme'
 
 function App() {
-  const { habits, addHabit, toggleHabitDoneOnDate } = useHabits()
+  const { habits, addHabit, toggleHabitDoneOnDate, replaceAllHabits } =
+    useHabits()
   const today = useMemo(() => todayLocalDate(), [])
   const { theme, toggleTheme } = useTheme()
 
@@ -36,6 +38,7 @@ function App() {
         streakFor={(habit) => computeCurrentStreak(habit.completedDates, today)}
       />
       <WeeklyGrid habits={habits} today={today} />
+      <DataPortability habits={habits} onImport={replaceAllHabits} />
     </section>
   )
 }
