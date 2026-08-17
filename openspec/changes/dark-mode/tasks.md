@@ -13,5 +13,5 @@
 
 ## 3. Verification across existing views
 
-- [ ] 3.1 Manually verify the checklist, streak display, and weekly grid all render correctly in both light and dark theme.
-- [ ] 3.2 Manually verify: fresh browser profile with OS set to dark shows dark theme by default; toggling to light and reloading keeps light regardless of OS setting.
+- [x] 3.1 Manually verify the checklist, streak display, and weekly grid all render correctly in both light and dark theme. (found and fixed a `color-scheme` bug causing native checkbox styling to mismatch the applied theme)
+- [x] 3.2 Manually verify: fresh browser profile with OS set to dark shows dark theme by default; toggling to light and reloading keeps light regardless of OS setting. (verified with the real system preference, which was dark)
