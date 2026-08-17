@@ -1,8 +1,8 @@
 ## 1. Export
 
-- [ ] 1.1 Implement a serializer that reads current habits and their completion history and produces a JSON object with a `version` field plus the habit list.
-- [ ] 1.2 Add an "Export" control that triggers a JSON file download of the serialized data.
-- [ ] 1.3 Manually verify: export with no habits produces a valid, well-formed empty-list JSON file.
+- [x] 1.1 Implement a serializer that reads current habits and their completion history and produces a JSON object with a `version` field plus the habit list.
+- [x] 1.2 Add an "Export" control that triggers a JSON file download of the serialized data.
+- [x] 1.3 Manually verify: export with no habits produces a valid, well-formed empty-list JSON file.
 
 ## 2. Import validation
 

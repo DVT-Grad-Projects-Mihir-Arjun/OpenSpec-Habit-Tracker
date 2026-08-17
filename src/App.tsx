@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { AddHabitForm } from './habits/AddHabitForm'
+import { DataPortability } from './habits/DataPortability'
 import { HabitChecklist } from './habits/HabitChecklist'
 import { WeeklyGrid } from './habits/WeeklyGrid'
 import { todayLocalDate } from './habits/date'
@@ -36,6 +37,7 @@ function App() {
         streakFor={(habit) => computeCurrentStreak(habit.completedDates, today)}
       />
       <WeeklyGrid habits={habits} today={today} />
+      <DataPortability habits={habits} />
     </section>
   )
 }
