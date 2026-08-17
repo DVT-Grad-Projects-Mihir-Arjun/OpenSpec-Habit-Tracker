@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { AddHabitForm } from './habits/AddHabitForm'
 import { HabitChecklist } from './habits/HabitChecklist'
 import { todayLocalDate } from './habits/date'
+import { computeCurrentStreak } from './habits/streak'
 import { useHabits } from './habits/useHabits'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         habits={habits}
         isDoneToday={(habit) => habit.completedDates.includes(today)}
         onToggle={(habitId) => toggleHabitDoneOnDate(habitId, today)}
+        streakFor={(habit) => computeCurrentStreak(habit.completedDates, today)}
       />
     </section>
   )

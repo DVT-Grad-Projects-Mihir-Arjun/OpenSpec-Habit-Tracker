@@ -12,11 +12,11 @@
 
 ## 3. Display streak in checklist
 
-- [ ] 3.1 Show each habit's current streak next to its name/completion toggle in the checklist row.
-- [ ] 3.2 Recompute and re-render the streak immediately when a habit is marked or unmarked done, without requiring a reload.
+- [x] 3.1 Show each habit's current streak next to its name/completion toggle in the checklist row.
+- [x] 3.2 Recompute and re-render the streak immediately when a habit is marked or unmarked done, without requiring a reload. (satisfied by construction — streak is derived from React state on every render, per design.md's "derive on read" decision)
 
 ## 4. Manual verification
 
-- [ ] 4.1 Mark a habit done on several consecutive simulated days and confirm the streak count increments correctly.
-- [ ] 4.2 Skip a day and confirm the streak resets to 0.
-- [ ] 4.3 Confirm a habit's streak from yesterday still displays before it's marked done today, and updates once it is.
+- [x] 4.1 Mark a habit done on several consecutive simulated days and confirm the streak count increments correctly.
+- [x] 4.2 Skip a day and confirm the streak resets to 0.
+- [x] 4.3 Confirm a habit's streak from yesterday still displays before it's marked done today, and updates once it is.
