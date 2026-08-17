@@ -8,6 +8,22 @@ schema: spec-driven
 #     Tech stack: TypeScript, React, Node.js
 #     We use conventional commits
 #     Domain: e-commerce platform
+context: |
+  Habit tracker web app.
+  Tech stack: React 19 + TypeScript + Vite + Tailwind. No backend/API — entirely client-side.
+  Persistence: browser localStorage (no server, no database).
+  "Today" and streak/history calculations use the device's current local date.
+  Existing/planned capabilities: habit-tracking (create habits, mark done, checklist),
+  streak-tracking (consecutive-day streaks), weekly-view (7-day completion grid),
+  theming (light/dark mode), data-portability (JSON export/import).
+
+  Git workflow: Gitflow.
+  - `main` — production-ready code only, tagged releases.
+  - `dev` — integration branch, default base for new work.
+  - `feature/<change-name>` — branch off `dev` for each OpenSpec change, named
+    after the change folder (e.g. `feature/add-dark-mode`).
+  - `hotfix/<name>` — branch off `main` for urgent production fixes, merged
+    back into both `main` and `dev`.
 
 # Per-artifact rules (optional)
 # Add custom rules for specific artifacts.
@@ -30,3 +46,12 @@ schema: spec-driven
 #     archive:
 #       guidance:
 #         - Summarize the archive outcome before finishing
+operations:
+  apply:
+    guidance:
+      - Create the change's feature branch (`feature/<change-name>`) from `dev` before starting implementation.
+      - Commit using Conventional Commits (feat:, fix:, chore:, etc.).
+      - Open a PR into `dev` once tasks.md is complete.
+  archive:
+    guidance:
+      - Only archive a change after its PR has merged into `dev`.
