@@ -1,9 +1,9 @@
 ## 1. Theme foundation
 
-- [ ] 1.1 Define light and dark CSS variable sets (colors for background, text, borders, etc.) keyed off a `data-theme` attribute on the root element.
-- [ ] 1.2 Convert existing hard-coded colors in `App.css`/`index.css` to reference the new CSS variables.
-- [ ] 1.3 Implement a theme-state module: resolve initial theme from stored preference, falling back to `prefers-color-scheme`, and expose a way to set/read the current theme.
-- [ ] 1.4 Apply the resolved theme attribute as early as possible during startup to avoid a flash of the wrong theme.
+- [x] 1.1 Define light and dark CSS variable sets (colors for background, text, borders, etc.) keyed off a `data-theme` attribute on the root element.
+- [x] 1.2 Convert existing hard-coded colors in `App.css`/`index.css` to reference the new CSS variables. (`App.css` no longer exists; all colors in `index.css` and components already referenced variables)
+- [x] 1.3 Implement a theme-state module: resolve initial theme from stored preference, falling back to `prefers-color-scheme`, and expose a way to set/read the current theme.
+- [x] 1.4 Apply the resolved theme attribute as early as possible during startup to avoid a flash of the wrong theme.
 
 ## 2. Manual toggle & persistence
 
