@@ -22,4 +22,4 @@ Once a user can check habits off day by day, the natural next motivator is seein
 
 - Affected code: the habit checklist UI (add streak display per row) and the persistence layer introduced by `core-habit-list` (extend stored data to keep full completion history instead of only today's flag).
 - Sequencing: this change builds on the `core-habit-list` change and its `habit-tracking` capability; `core-habit-list` should be implemented/archived first so `openspec/specs/habit-tracking/spec.md` exists for this change's delta to apply against.
-- No new dependency — plain client-side computation from existing stored data.
+- New dependency: Vitest is added as a dev dependency to unit test the streak computation function (unbroken streak, grace period, broken streak, never-completed cases). No runtime/production dependency is added.

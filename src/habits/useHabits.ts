@@ -3,12 +3,27 @@ import type { Habit } from './types'
 
 const STORAGE_KEY = 'habit-tracker:habits'
 
+function normalizeHabit(value: unknown): Habit | null {
+  if (typeof value !== 'object' || value === null) return null
+  const record = value as Record<string, unknown>
+  if (typeof record.id !== 'string' || typeof record.name !== 'string') {
+    return null
+  }
+  const completedDates = Array.isArray(record.completedDates)
+    ? record.completedDates.filter((d): d is string => typeof d === 'string')
+    : []
+  return { id: record.id, name: record.name, completedDates }
+}
+
 function loadHabits(): Habit[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (!raw) return []
     const parsed = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed : []
+    if (!Array.isArray(parsed)) return []
+    return parsed
+      .map(normalizeHabit)
+      .filter((habit): habit is Habit => habit !== null)
   } catch {
     return []
   }
