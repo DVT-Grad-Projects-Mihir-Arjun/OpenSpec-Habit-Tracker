@@ -17,5 +17,5 @@
 
 ## 4. Manual verification
 
-- [ ] 4.1 Export data, clear it (or use a fresh profile), import the file back, and confirm habits, completion history, and streaks match the original.
-- [ ] 4.2 Attempt to import a non-JSON file and a JSON file with the wrong shape; confirm both are rejected with an error and existing data is unchanged.
+- [x] 4.1 Export data, clear it (or use a fresh profile), import the file back, and confirm habits, completion history, and streaks match the original.
+- [x] 4.2 Attempt to import a non-JSON file and a JSON file with the wrong shape; confirm both are rejected with an error and existing data is unchanged.
