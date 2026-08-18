@@ -1,75 +1,33 @@
-# React + TypeScript + Vite
+# OpenSpec Habit Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small habit-tracking web app, built as a hands-on test of the [OpenSpec](https://github.com/Fission-AI/OpenSpec) spec-driven workflow: every feature here started as an `openspec` proposal (why/what, specs, design, tasks) before any code was written, and the specs in `openspec/specs/` are the living source of truth for what the app does.
 
-Currently, two official plugins are available:
+## What's in this repo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **App**: a client-side habit tracker — create habits, check them off daily, see streaks and a 7-day history, in light or dark theme, with JSON backup/restore.
+- **`openspec/specs/`**: the current behavior contract for each capability (`habit-tracking`, `streak-tracking`, `weekly-view`, `theming`, `data-portability`).
+- **`openspec/changes/archive/`**: the archived proposals that built each capability, including the "why" behind each decision.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Habit checklist** — add a habit by name, mark it done for today, and unmark it. Habits and completion history persist across reloads.
+- **Streaks** — each habit shows its current consecutive-day streak. If you haven't checked off today yet, the streak still counts through yesterday (a grace period) rather than dropping to 0 — it only breaks once a full day passes without completion.
+- **Weekly view** — a rolling 7-day grid per habit (today plus the 6 preceding days) showing which days it was completed. Read-only; the only way to change completion is the checklist's today toggle.
+- **Dark mode** — defaults to your OS/browser color-scheme preference; the toggle button lets you override it, and your choice is remembered on future visits.
+- **Export / Import** — download all your habits and their full completion history as a JSON file, and re-import it later (e.g. after clearing browser storage or on a new device). Importing replaces existing data and requires confirmation first.
 
-## Expanding the ESLint configuration
+## Running it
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev       # start the dev server
+npm run build     # typecheck + production build
+npm run test      # run the unit tests (streak calculation)
+npm run lint      # lint the codebase
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+All data lives in the browser's `localStorage` — there's no backend or account system.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tech stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+React 19 + TypeScript + Vite, styled with Tailwind CSS. Client-only, no server or database.

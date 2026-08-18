@@ -21,5 +21,5 @@ The habit tracker currently has no functionality — it's a blank React + Vite s
 ## Impact
 
 - Affected code: `src/App.tsx` and new components/hooks for habit state and persistence (all new, no existing app logic to modify).
-- New dependency: none required (plain React state + `localStorage`).
+- New dependency: Tailwind CSS is added and configured as part of this change (per project tech stack), and used to style the add-habit form and checklist.
 - No backend/API impact — this feature is entirely client-side.
