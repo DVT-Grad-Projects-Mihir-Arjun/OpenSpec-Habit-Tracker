@@ -16,17 +16,17 @@ function App() {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <div className="flex flex-1 flex-col bg-[var(--bg)]">
-      <header className="border-b border-[var(--border)] bg-[var(--surface)]">
+    <div className="flex flex-1 flex-col bg-(--bg)">
+      <header className="border-b border-(--border) bg-(--surface)">
         <div className="mx-auto flex w-full max-w-md items-center justify-between px-4 py-4 sm:px-6">
-          <h1 className="text-xl font-semibold tracking-tight text-[var(--text-h)]">
+          <h1 className="text-xl font-semibold tracking-tight text-(--text-h)">
             Habit Tracker
           </h1>
           <button
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle color theme"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-h)] transition-colors hover:bg-[var(--accent-bg)] hover:border-[var(--accent-border)]"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-(--border) text-(--text-h) transition-colors hover:bg-(--accent-bg) hover:border-(--accent-border)"
           >
             {theme === 'dark' ? (
               <SunIcon className="h-4.5 w-4.5" />
@@ -41,7 +41,7 @@ function App() {
         <AddHabitForm onAdd={addHabit} />
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-[var(--text)]">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-(--text)">
             Today
           </h2>
           <HabitChecklist
@@ -55,14 +55,14 @@ function App() {
         </section>
 
         <section className="flex flex-col gap-3">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-[var(--text)]">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-(--text)">
             This week
           </h2>
           <WeeklyGrid habits={habits} today={today} />
         </section>
 
-        <section className="flex flex-col gap-3 border-t border-[var(--border)] pt-6">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-[var(--text)]">
+        <section className="flex flex-col gap-3 border-t border-(--border) pt-6">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-(--text)">
             Data
           </h2>
           <DataPortability habits={habits} onImport={replaceAllHabits} />
