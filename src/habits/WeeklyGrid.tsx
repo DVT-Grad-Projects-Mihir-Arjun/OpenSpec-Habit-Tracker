@@ -17,7 +17,7 @@ export function WeeklyGrid({ habits, today }: WeeklyGridProps) {
 
   if (habits.length === 0) {
     return (
-      <p className="rounded-xl border border-dashed border-[var(--border)] px-4 py-6 text-center text-sm text-[var(--text)]">
+      <p className="rounded-xl border border-dashed border-(--border) px-4 py-6 text-center text-sm text-(--text)">
         No habits yet — add one above to get started.
       </p>
     )
@@ -31,7 +31,7 @@ export function WeeklyGrid({ habits, today }: WeeklyGridProps) {
           {window.map((date) => (
             <span
               key={date}
-              className="w-5 text-center text-[11px] font-medium text-[var(--text)] sm:w-6"
+              className="w-5 text-center text-[11px] font-medium text-(--text) sm:w-6"
             >
               {weekdayLabel(date)}
             </span>
@@ -44,9 +44,9 @@ export function WeeklyGrid({ habits, today }: WeeklyGridProps) {
           return (
             <li
               key={habit.id}
-              className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 shadow-[var(--shadow-sm)]"
+              className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-(--border) bg-(--surface) px-4 py-3 shadow-(--shadow-sm)"
             >
-              <span className="min-w-0 truncate text-[15px] font-medium text-[var(--text-h)]">
+              <span className="min-w-0 truncate text-[15px] font-medium text-(--text-h)">
                 {habit.name}
               </span>
               <div className="grid grid-cols-7 gap-1">
@@ -56,8 +56,8 @@ export function WeeklyGrid({ habits, today }: WeeklyGridProps) {
                     aria-hidden="true"
                     className={
                       done
-                        ? 'h-5 w-5 rounded-md bg-[var(--accent)] sm:h-6 sm:w-6'
-                        : 'h-5 w-5 rounded-md border border-[var(--border)] sm:h-6 sm:w-6'
+                        ? 'h-5 w-5 rounded-md bg-(--accent) sm:h-6 sm:w-6'
+                        : 'h-5 w-5 rounded-md border border-(--border) sm:h-6 sm:w-6'
                     }
                   />
                 ))}
