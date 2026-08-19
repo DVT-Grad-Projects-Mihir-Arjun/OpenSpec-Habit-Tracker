@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { DownloadIcon, UploadIcon } from '../icons'
 import type { Habit } from './types'
 import {
   downloadHabitsExport,
@@ -47,20 +48,22 @@ export function DataPortability({ habits, onImport }: DataPortabilityProps) {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-3">
       <div className="flex gap-2">
         <button
           type="button"
           onClick={() => downloadHabitsExport(habits)}
-          className="rounded-md border border-[var(--border)] px-3 py-2 text-sm text-[var(--text-h)]"
+          className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-(--border) px-3 py-2 text-sm font-medium text-(--text) transition-colors hover:border-(--border-strong) hover:text-(--text-h)"
         >
+          <DownloadIcon className="h-4 w-4" />
           Export
         </button>
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className="rounded-md border border-[var(--border)] px-3 py-2 text-sm text-[var(--text-h)]"
+          className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-(--border) px-3 py-2 text-sm font-medium text-(--text) transition-colors hover:border-(--border-strong) hover:text-(--text-h)"
         >
+          <UploadIcon className="h-4 w-4" />
           Import
         </button>
         <input
@@ -73,14 +76,17 @@ export function DataPortability({ habits, onImport }: DataPortabilityProps) {
       </div>
 
       {importError && (
-        <p className="text-sm text-[var(--text)]" role="alert">
+        <p
+          className="rounded-lg border border-(--warning-border) bg-(--warning-bg) px-3 py-2 text-sm text-(--warning-text)"
+          role="alert"
+        >
           {importError}
         </p>
       )}
 
       {pendingImport && (
-        <div className="flex flex-col gap-2 rounded-md border border-[var(--border)] p-3">
-          <p className="text-sm text-[var(--text-h)]">
+        <div className="flex flex-col gap-3 rounded-xl border border-(--warning-border) bg-(--warning-bg) p-3.5">
+          <p className="text-sm text-(--warning-text)">
             Importing will replace your current {habits.length} habit
             {habits.length === 1 ? '' : 's'} with {pendingImport.habits.length}{' '}
             imported habit
@@ -91,14 +97,14 @@ export function DataPortability({ habits, onImport }: DataPortabilityProps) {
             <button
               type="button"
               onClick={confirmImport}
-              className="rounded-md bg-[var(--accent)] px-3 py-2 text-sm font-medium text-white"
+              className="rounded-lg bg-(--accent) px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-(--accent-hover)"
             >
               Replace habits
             </button>
             <button
               type="button"
               onClick={cancelImport}
-              className="rounded-md border border-[var(--border)] px-3 py-2 text-sm text-[var(--text-h)]"
+              className="rounded-lg border border-(--border) bg-(--surface) px-3 py-2 text-sm font-medium text-(--text-h) transition-colors hover:border-(--border-strong)"
             >
               Cancel
             </button>

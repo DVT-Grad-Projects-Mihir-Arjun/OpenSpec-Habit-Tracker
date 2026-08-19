@@ -9,7 +9,7 @@ interface WeeklyGridProps {
 function weekdayLabel(dateStr: string): string {
   const [year, month, day] = dateStr.split('-').map(Number)
   const date = new Date(year, month - 1, day)
-  return date.toLocaleDateString(undefined, { weekday: 'short' })
+  return date.toLocaleDateString(undefined, { weekday: 'short' }).slice(0, 2)
 }
 
 export function WeeklyGrid({ habits, today }: WeeklyGridProps) {
@@ -17,7 +17,7 @@ export function WeeklyGrid({ habits, today }: WeeklyGridProps) {
 
   if (habits.length === 0) {
     return (
-      <p className="text-[var(--text)]">
+      <p className="rounded-xl border border-dashed border-(--border) px-4 py-6 text-center text-sm text-(--text)">
         No habits yet — add one above to get started.
       </p>
     )
@@ -25,13 +25,13 @@ export function WeeklyGrid({ habits, today }: WeeklyGridProps) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex items-center gap-3 px-4">
-        <span className="flex-1" />
-        <div className="flex gap-1">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4">
+        <span />
+        <div className="grid grid-cols-7 gap-1">
           {window.map((date) => (
             <span
               key={date}
-              className="w-6 text-center text-xs text-[var(--text)]"
+              className="w-5 text-center text-[11px] font-medium text-(--text) sm:w-6"
             >
               {weekdayLabel(date)}
             </span>
@@ -44,20 +44,20 @@ export function WeeklyGrid({ habits, today }: WeeklyGridProps) {
           return (
             <li
               key={habit.id}
-              className="flex items-center gap-3 rounded-md border border-[var(--border)] px-4 py-3"
+              className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-(--border) bg-(--surface) px-4 py-3 shadow-(--shadow-sm)"
             >
-              <span className="flex-1 text-[var(--text-h)]">
+              <span className="min-w-0 truncate text-[15px] font-medium text-(--text-h)">
                 {habit.name}
               </span>
-              <div className="flex gap-1">
+              <div className="grid grid-cols-7 gap-1">
                 {completion.map((done, i) => (
                   <span
                     key={window[i]}
                     aria-hidden="true"
                     className={
                       done
-                        ? 'h-6 w-6 rounded-sm bg-[var(--accent)]'
-                        : 'h-6 w-6 rounded-sm border border-[var(--border)]'
+                        ? 'h-5 w-5 rounded-md bg-(--accent) sm:h-6 sm:w-6'
+                        : 'h-5 w-5 rounded-md border border-(--border) sm:h-6 sm:w-6'
                     }
                   />
                 ))}
